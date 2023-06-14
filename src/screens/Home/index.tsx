@@ -32,6 +32,9 @@ import {
   CardPrice,
   CardState,
   SearchButton,
+  ListHeader,
+  ListTitle,
+  AnnounctmentCount,
 } from "./styles";
 
 const formatData = (data: any[], numColumns: number) => {
@@ -54,9 +57,9 @@ export function Home() {
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODY2NTg0NzQsImV4cCI6MTY4Njc0NDg3NCwic3ViIjoiZTRkOWYxMGMtNGEzMS00MTI3LThlODMtOTVlMjQ0MWQyNTU2In0._qyE62NEMH7NuiEaG9AWRzSSKk2HhdZJj-0q3vkd8kE";
   const [announcements, setAnnouncements] = useState([]);
   const [loadingAnnouncements, setLoadingAnnouncements] = useState(false);
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>();
 
-  async function handleSearchAnnouncement() {
+  async function getAnnouncments() {
     try {
       setLoadingAnnouncements(true);
       const response = await api.get("/announcements", {
@@ -71,23 +74,9 @@ export function Home() {
     }
   }
 
-  async function getAnnouncments() {
-    try {
-      setLoadingAnnouncements(true);
-      const response = await api.get("/announcements", {
-        headers: { Authorization: "Bearer " + token },
-      });
-      setAnnouncements(response.data.data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoadingAnnouncements(false);
-    }
-  }
-
   useEffect(() => {
     getAnnouncments();
-  }, []);
+  }, [searchValue]);
 
   return (
     <Container>
@@ -111,19 +100,24 @@ export function Home() {
 
       <SearchBar>
         <Input
+          value={searchValue}
           onChangeText={(value) => {
             setSearchValue(value);
-            handleSearchAnnouncement();
           }}
         />
         <IconsBox>
-          <SearchButton onPress={() => handleSearchAnnouncement()}>
+          <SearchButton onPress={() => getAnnouncments()}>
             <SearchIcon />
           </SearchButton>
           <Divider />
           <FilterIcon />
         </IconsBox>
       </SearchBar>
+
+      <ListHeader>
+        <ListTitle>Anúncios</ListTitle>
+        <AnnounctmentCount>Total de {announcements.length}</AnnounctmentCount>
+      </ListHeader>
 
       {loadingAnnouncements ? (
         <View
@@ -142,7 +136,6 @@ export function Home() {
           contentContainerStyle={{
             marginRight: 20,
             marginLeft: 20,
-            marginTop: 24,
           }}
           showsVerticalScrollIndicator={false}
           keyExtractor={(announcement: any) => announcement?.id}

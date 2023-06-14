@@ -11,6 +11,7 @@ import {
 import { Home } from "./src/screens/Home";
 import theme from "./src/theme";
 import { StatusBar } from "react-native";
+import { Announcement } from "./src/screens/Announcement";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -32,7 +33,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Home />
+      <Announcement />
     </ThemeProvider>
   );
 }

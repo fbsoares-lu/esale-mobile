@@ -126,6 +126,23 @@ export const CardPrice = styled.Text`
   color: ${({ theme }) => theme.COLORS.gray_two};
 `;
 
+export const ListHeader = styled.View`
+  margin: 12px 24px;
+  flex-direction: column;
+`;
+
+export const ListTitle = styled.Text`
+  font-family: ${({ theme }) => theme.FONT_FAMILY.inter_700};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  color: ${({ theme }) => theme.COLORS.gray_one};
+`;
+
+export const AnnounctmentCount = styled.Text`
+  font-family: ${({ theme }) => theme.FONT_FAMILY.inter_400};
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  color: ${({ theme }) => theme.COLORS.gray_two};
+`;
+
 export const SearchButton = styled.TouchableOpacity``;
 
 export const SearchIcon = styled(MagnifyingGlass).attrs(({ theme }) => ({
