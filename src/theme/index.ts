@@ -4,8 +4,8 @@ export default {
 
     black: "#000000",
 
-    primary: "#27AF4B",
-    secondary: "#164059",
+    primary: "#52688f",
+    secondary: "#7391c8",
 
     gray_one: "#1A181B",
     gray_two: "#3E3A40",

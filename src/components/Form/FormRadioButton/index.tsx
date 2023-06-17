@@ -14,14 +14,14 @@ export function FormRadioButton({ label }: FormRadioButtonProps) {
       id: "1",
       label: "Novo",
       value: "new",
-      color: "#5F5B62",
+      color: "#9F9BA1",
       borderColor: "#9F9BA1",
     },
     {
       id: "2",
       label: "Usado",
       value: "old",
-      color: "#5F5B62",
+      color: "#9F9BA1",
       borderColor: "#9F9BA1",
     },
   ];

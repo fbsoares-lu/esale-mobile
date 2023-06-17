@@ -13,7 +13,7 @@ export function FormSwitch({ label }: FormSwitchProps) {
     <Container>
       <InputTitle value={label} />
       <Switch
-        trackColor={{ false: "#767577", true: "#5F5B62" }}
+        trackColor={{ false: "#767577", true: "#79a9f5" }}
         onValueChange={toggleSwitch}
         value={isEnabled}
       />
