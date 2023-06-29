@@ -144,6 +144,7 @@ export const AnnounctmentCount = styled.Text`
 `;
 
 export const SearchButton = styled.TouchableOpacity``;
+export const FilterButton = styled.TouchableOpacity``;
 
 export const SearchIcon = styled(MagnifyingGlass).attrs(({ theme }) => ({
   size: 20,

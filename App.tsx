@@ -8,10 +8,10 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 
-import { Home } from "./src/screens/Home";
 import theme from "./src/theme";
 import { StatusBar } from "react-native";
-import { Announcement } from "./src/screens/Announcement";
+import { Home } from "./src/screens/Home";
+import Test from "./src/screens/Test";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -33,7 +33,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Announcement />
+      <Test />
     </ThemeProvider>
   );
 }
