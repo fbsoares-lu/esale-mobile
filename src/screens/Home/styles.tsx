@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
-import { MagnifyingGlass, Sliders } from "phosphor-react-native";
+import { MagnifyingGlass, Sliders, SignOut } from "phosphor-react-native";
 import { FlatList, TextInput } from "react-native";
 
 interface ICardStateProps {
@@ -9,12 +9,12 @@ interface ICardStateProps {
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.COLORS.background};
+  background-color: ${({ theme }) => theme.COLORS.secondary};
 `;
 
 export const BackgroundHeader = styled.View`
   padding-top: ${getStatusBarHeight() + 36}px;
-  background-color: ${({ theme }) => theme.COLORS.black};
+  background-color: ${({ theme }) => theme.COLORS.primary};
 `;
 
 export const Logo = styled.Image`
@@ -23,14 +23,25 @@ export const Logo = styled.Image`
 `;
 
 export const Header = styled.View`
-  margin-bottom: 40px;
-  align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  align-items: center;
   padding: 0 24px;
+  margin-bottom: 40px;
 `;
 
 export const GreetBox = styled.View``;
+
+export const Greet = styled.View`
+  align-items: center;
+  flex-direction: row;
+`;
+
+export const SignoutIcon = styled(SignOut).attrs(({ theme }) => ({
+  size: 24,
+  color: theme.COLORS.secondary,
+  weight: "bold",
+}))``;
 
 export const Text = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.inter_400};
@@ -53,6 +64,8 @@ export const AvatarCircle = styled.View`
   border-style: solid;
   border-color: ${({ theme }) => theme.COLORS.white};
   border-width: 1px;
+
+  margin-right: 8px;
 `;
 
 export const SearchBar = styled.View`
@@ -60,7 +73,7 @@ export const SearchBar = styled.View`
   align-items: center;
   padding: 0 20px;
   flex-direction: row;
-  border-radius: 6px;
+  border-radius: 100px;
   background-color: ${({ theme }) => theme.COLORS.white};
   margin: 0 24px;
 

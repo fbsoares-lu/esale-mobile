@@ -11,8 +11,7 @@ import {
 import theme from "./src/theme";
 import { StatusBar } from "react-native";
 import { Home } from "./src/screens/Home";
-import Test from "./src/screens/Test";
-
+import { Announcement } from "./src/screens/Announcement";
 export default function App() {
   let [fontsLoaded] = useFonts({
     Inter_300Light,
@@ -33,7 +32,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Test />
+      <Home />
     </ThemeProvider>
   );
 }
